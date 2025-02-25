@@ -178,7 +178,7 @@ app.use((req,res)=>{
        return env[e].fetch(req.url);
       } 
     }
-  } //morrow add cf worker assets
+  } //morrow add cf worker assetse
   
 
 
