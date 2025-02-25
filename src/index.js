@@ -89,10 +89,7 @@ console.log(event);
 }) 
 </script>  
 `
- app.use((req)=>{
-  
- // return new Response("ware")
- })     
+
 app.get("/bb",(req,res)=>{  
   //res.statusCode=200
   return res.html(ht)
@@ -173,8 +170,18 @@ app.get("/bb",(req,res)=>{
   <script src="https://cdn.tailwindcss.com"></script>
   `,200)
  })
-app.useStatic("./static",{
-	
+app.use((req,res)=>{
+  let env = req.env || {};
+  if(env){
+    for(let e in env){
+   if(env[e] && env[e].fetch){   
+       return env[e].fetch(req.url);
+      } 
+    }
+  } //morrow add cf worker assets
+  
+
+
 })
  let r2 = new app.Room("/bb");   
  r2.onConnected((socket)=>{
