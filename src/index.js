@@ -170,7 +170,7 @@ app.get("/bb",(req,res)=>{
   <script src="https://cdn.tailwindcss.com"></script>
   `,200)
  })
-app.use((req,res)=>{
+app.use((req,res)=>{  
   let env = req.env || {};
   if(env){
     for(let e in env){
